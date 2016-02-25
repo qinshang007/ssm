@@ -1,11 +1,12 @@
 package com.ssm.controller;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ssm.model.User;
 import com.ssm.service.UserService;
@@ -17,10 +18,9 @@ public class UserController {
 	 @Resource  
 	 private UserService userService;  
 	      
-     @RequestMapping("/showUser")  
-     public String toIndex(HttpServletRequest request,Model model){  
-        int userId = Integer.parseInt(request.getParameter("id"));  
-        User user = this.userService.getUserById(userId);  
+     @RequestMapping(value="/{id}",method=RequestMethod.GET)  
+     public String toIndex(@PathVariable("id") int id,Model model){  
+        User user = this.userService.getUserById(id);  
         model.addAttribute("user", user);  
         return "showUser";  
      }
