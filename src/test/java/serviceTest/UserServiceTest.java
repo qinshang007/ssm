@@ -17,8 +17,8 @@ import com.ssm.service.UserService;
  * @author Administrator
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
 public class UserServiceTest {
 	
 	 private static Logger logger = Logger.getLogger(UserServiceTest.class);
@@ -44,7 +44,7 @@ public class UserServiceTest {
 			 System.out.println("创建用户失败");
 	 }
 	 
-	 @Test
+//	 @Test
 	 public void updateUser(){
 		 User user = new User();
 		 user.setId(2);
