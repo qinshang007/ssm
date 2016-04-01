@@ -33,8 +33,8 @@ def start_server():
     sudo('/usr/java/tomcat7/bin/startup.sh')
 
 def copy_file():
-    local('rsync -aruv --delete-before ../target/SSM/WEB-INF/ %s@%s:~/WEB-INF/' % (env.user, env.hosts[0]))
-    sudo('cp -r /root/WEB-INF /usr/java/tomcat7/webapps/SSM/')
+    local('rsync -aruv --delete-before ../target/SSM %s@%s:~/WEB-INF/' % (env.user, env.hosts[0]))
+    sudo('cp -r /root/WEB-INF/* /usr/java/tomcat7/webapps/SSM/')
     
 def clean():
 	with cd('/usr/java/tomcat7/webapps/SSM/WEB-INF/'):
